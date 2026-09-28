@@ -1,11 +1,11 @@
-FROM python:3.11-slim-bookworm
+FROM python:3.10-slim-bookworm
 
 # set work directory
 WORKDIR /app
 
 # dependencies for psycopg2
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    gcc dnsutils libpq-dev \
+    gcc libc6-dev dnsutils libpq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables
